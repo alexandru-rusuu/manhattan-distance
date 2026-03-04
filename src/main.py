@@ -13,9 +13,13 @@ def read_vectors_from_file(filename):
         
         if len(lines) < 2:
             raise ValueError("Fisierul trebuie sa contina cel putin 2 vectori")
+
         
         vector_x = parse_vector_from_line(lines[0])
         vector_y = parse_vector_from_line(lines[1])
+
+        if (len(vector_x) != len(vector_y)):
+            raise ValueError("Vectorii nu au aceasi lungime")
         
         return vector_x, vector_y
     
